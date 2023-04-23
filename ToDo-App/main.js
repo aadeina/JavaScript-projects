@@ -25,6 +25,8 @@ function addTaskToArray(taskText) {
   arrayOfTasks.push(task);
   // Add Tasks to page
   addElementsToPageFrom(arrayOfTasks);
+  //Add tasks to local Storage
+  addDataToLocalStorageFrom(arrayOfTasks);
 }
 
 function addElementsToPageFrom(arrayOfTasks) {
@@ -35,6 +37,10 @@ function addElementsToPageFrom(arrayOfTasks) {
     // Create Main Div
     let div = document.createElement("div");
     div.className = "task";
+    //Check if task is Done
+    if (task.completed) {
+      div.className = "task done";
+    }
     div.setAttribute("data-id", task.id);
     div.appendChild(document.createTextNode(task.title));
     // Create Delete Button
@@ -44,6 +50,11 @@ function addElementsToPageFrom(arrayOfTasks) {
     span.appendChild(document.createTextNode("Delete"));
     div.appendChild(span);
     // Add task Div to tasks container
-
   });
 }
+
+// function addDataToLocalStorageFrom(arrayOfTasks) {
+//   window.localStorage.setItem("tasks", JSON.stringify())
+
+// }
+
