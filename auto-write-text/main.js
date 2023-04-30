@@ -13,4 +13,4 @@ function writeText(){
 
 }
 
-setInterval(writeText, 100)
+setInterval(writeText, 110)
